@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-const webContent = "Hello Kubernetes World!"
+const webContent = "Hello OpenStack World!"
 
 func main() {
 	http.HandleFunc("/", helloHandler)
