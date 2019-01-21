@@ -26,6 +26,4 @@ stages:
       path: ./deployment.yaml
     when:
       event: {}
-branch:
-  include:
-  - master
+branch: {}
