@@ -19,10 +19,19 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
+      registry: 127.0.0.1:34481
+    when:
+      event:
+        include:
+        - push
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+    when:
+      event:
+        include:
+        - push
 branch:
   include:
   - master
