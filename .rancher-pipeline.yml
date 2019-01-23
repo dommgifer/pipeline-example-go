@@ -10,9 +10,7 @@ stages:
         go build -o bin/hello-server
         go test -cover
     when:
-      event:
-        include:
-        - push
+      event: {}
 - name: Publish
   steps:
   - publishImageConfig:
@@ -21,17 +19,11 @@ stages:
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34481
     when:
-      event:
-        include:
-        - push
+      event: {}
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
     when:
-      event:
-        include:
-        - push
-branch:
-  include:
-  - master
+      event: {}
+branch: {}
